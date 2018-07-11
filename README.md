@@ -37,7 +37,7 @@ You just have to confirm the shipment.
 
 The email is then recognized by the application on your smartphone and sent in sms.
 
-
+__
 
 [FR]
 Envoyez des SMS depuis votre navigateur
