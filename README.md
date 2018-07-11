@@ -14,10 +14,14 @@ Being able to access your emails from your smartphone (internet connection)
 
 Install and configure Email SMS Gateway (or similar)
 https://play.google.com/store/apps/details?id=com.maxlabmobile.emailtosmsgateway
+
 Configuration:
+
 Enable -> YES
+
 Email accounts -> add email account to check
   - Check Interval -> choose when to check for new emails
+  
 Email Subject Prefix -> keyword in the subject of the email that triggers the sending of an SMS (if modified, it must also be modified in the code)
 
 Use :
