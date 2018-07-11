@@ -34,7 +34,7 @@ You just have to confirm the shipment.
 
 The email is then recognized by the application on your smartphone and sent in sms.
 
-
+[FR]
 Envoyez des SMS depuis votre navigateur
 
 Ce petit fichier html vous permet d'envoyer des sms depuis votre PC (ou Mac, ou tablette).
@@ -60,8 +60,11 @@ Email Subject Prefix -> mot-clé dans le sujet de l'email qui déclenche l'envoi
 Usage :
 
 lancer le fichier html dans un navigateur
+
 renseignez le numéro ou le nom du contact (tel que définit dans votre téléphone) a joindre.
+
 Selectionnez votre message prédéfini ou créez le votre.
+
 Cliquez sur envoyer -> votre logiciel de messagerie se lance et vous propose le mail préformaté;
 Vous n'avez plus qu'a confimer l'envoi.
 
