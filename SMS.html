@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript">
+        //l'adresse email relai ver où est envoyé le message formaté
+        var relaisEmail = "";
+        //préfixe dans l'objet de l'email; présent avant le numéro de téléphone a contacter
+        //valeur par défaut pour Email To SMS Gateway : "ets: "
+        var relaisPrefixe = "ets: ";
+    </script>
+
+    <title> - Envoi SMS - </title>
+    <meta charset="utf-8">
+    <meta name="description" content="pc-sms-notification from mail">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+    crossorigin="anonymous">
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" 
+    crossorigin="anonymous">
+    </script>
+
+    <style>
+    body
+    {
+     /*margin:3%;*/
+     }
+     h1
+     {
+         padding: 0px;
+         margin: 0px;
+         text-shadow: 10px 7px 3px #43b17b4d;
+     }
+     header
+     {
+       text-align: center;
+       margin-bottom: 8px;
+       margin-top: 15px;
+   }
+   small
+   {
+        font-size: 30%;
+        line-height: 0.5;
+    }
+
+    .smallBtn
+    {
+        line-height: 10px;
+        font-size: 9px;
+    }
+
+    .about
+    {
+         font-size: 12px;
+         margin-left: 15px;
+    }
+
+    label
+    {
+        margin-right: 10px;
+        margin-left: 20px;
+        text-align: right;
+    }
+
+    .center
+    {
+        text-align: center;
+    }
+
+    .right
+    {
+        text-align: right;
+    }
+
+    .bw
+    {
+        color: white;
+        background-color: black;
+        /*line-height: 16px;*/
+    }
+
+    .bck
+    {
+        padding: 20px;
+        background-color: #43b17b4d;
+        border-radius: .25rem;
+    }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+    $('#email').val(relaisEmail);
+    $('#phoneNumber').select();
+
+    $(document).on('change', '#template', function()
+    {
+        $('#message').val($(this).val());
+    });
+
+    $("#envoyer").on('click', function()
+    {
+        var link = 'mailto:'+$('#email').val()+'?subject='+relaisPrefixe+$('#phoneNumber').val()+'&body='+encodeURI($('#message').val());
+        javascript:window.location=link;
+        console.log(link);
+        $('#phoneNumber').select();
+    });
+    $('#message').on('input',function(e){
+        $('#template option:eq(0)').prop('selected', true);
+    });
+});
+</script>
+</head>
+
+<body>
+    <div id="page">
+        <header><br><div style="text-align:center;text-decoration:underline;"><h1>Notifications SMS</h1><br></div></header>
+        <form id='prepareMail'>
+            <div class="container">
+
+
+                <div  class='row  justify-content-center'>
+
+                    <div class='col-lg-9 bck'>
+
+                        <div  class='row'>
+                            <div class='col-md-3 center'>
+                                <label for="phoneNumber">Téléphone : </label><br><input id="phoneNumber" type="tel"  required size="8" maxLength="20" value = "" >
+                            </div><br>
+                            <div class='col-md-4 center'>
+                                <input type='button' class= 'btn btn-primary' id = 'envoyer' value = 'envoyer' style='margin-top:22px;'></input>
+                            </div>
+                            <!-- decommentez les lignes ci dessous et passez <input type="hidden" a <input type="text" pour afficher le champs de l'email-->                            
+                             <div class='col-md-5 right'  >
+                                <label for="email">Relais mail: </label>
+                                 <!-- <input type="hidden" id="email" value = "" required > -->
+                                <input type="text" id="email" value = "" required > 
+                              </div> 
+                        </div>
+                        <br>
+                        <div  class='row'>
+                            <div class='col-md-3 center'>
+                                <label for="template">Modèle : </label>
+                                <br>
+                                <select id='template'>
+                                    <option value=''></option>
+                                    <option value= "Nice-Market : Votre colis est prêt, en attente du transporteur.")>commande en attente</option>
+                                    <option value= "Nice-Market : Votre colis a été remis au transporteur.">commande enlevée</option>
+                                <!--Vous pouvez ajouter ci dessous vos lignes  <option value='le message du sms'>nom pour ce message</option>  pour proposer un nouveau message prédéfini-->
+
+                            </select>
+                        </div>
+                        <br>
+                        <div class='col-md-9'>
+                            <label for="message">Message : </label><br>
+                            <input id='message' type='text' required size="57" maxLength="70" minLength="3" value="" placeholder="Choisissez un modèle ou écrivez votre texte ( 70 caract. max. )"></input>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div>
+                        <button class="btn smallBtn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> + Plus d'infos </button>
+                        <div class="collapse" id="collapseExample"><br>
+                            <div class="about"> Cette page fonctionne avec une application sur votre smartphone transformant vos emails en sms.<br> &nbsp;
+                                 Le code est adapté à l'application <a href="https://play.google.com/store/apps/details?id=com.maxlabmobile.emailtosmsgateway">Email To SMS Gateway sur Google Play</a> mais peux aussi fonctionner avec d'autres.<br><br> &nbsp;
+                                 Ce formulaire prérempli l'email et lance votre logiciel de messagerie (Outlook, Thunderbird ...), il vous reste a valider l'envoi.
+                                 <br><br> &nbsp;
+                                 Afin que les sms soient envoyés, votre smartphone doit recevoir vos emails.<br> &nbsp;
+                                 Votre compte email doit être renseigné dans votre application android ainsi que dans le code de cette page (ligne 6).
+                                  <br><br> &nbsp;
+                                  Vous pouvez utiliser un nom présent dans les contacts de votre smartphone à la place du numéro de téléphone.
+                                  <br><br> &nbsp;
+                                  Utilisez les raccourcis clavier pour aller plus vite : <br> &nbsp;&nbsp;
+                                  Le bouton TAB (a gauche de A) permet de selectionner le champs du formulaire suivant.<br> &nbsp;&nbsp;
+                                  Les boutons SHIFT (au dessus de CTRL) et TAB permet de selectionner le champs du formulaire précédent.<br> &nbsp;&nbsp;
+                                  Les boutons ALT et TAB permet de baculer rapidement entre votre logiciel de messagerie et cette page.<br><br>
+                                  Vous pouvez ajouter ou modifier des modèles dans le code de cette page (ligne 141).
+                                  <!-- Have Fun ! -->
+                            </div>
+                         </div>
+                    </div>
+                    <hr>
+                    <footer class='right'><div style='font-size:10px;'>développé par <a href='mailto:pierre.pezet@gmail.com'>Pierre Pezet 2018</a>.</div></footer>
+                </div>
+
+            </div>
+            
+        </div>
+    </form>        
+</div>
+</body>
+</html>
