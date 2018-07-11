@@ -25,6 +25,7 @@ Email accounts -> add email account to check
 Email Subject Prefix -> keyword in the subject of the email that triggers the sending of an SMS (if modified, it must also be modified in the code)
 
 Use :
+
 launch the html file in a browser
 fill in the number or name of the contact (as defined in your phone) to be reached.
 Select your predefined message or create your own.
@@ -46,13 +47,18 @@ Pouvoir accèder a vos emails depuis votre smartphone (connexion internet)
 
 Installer et configurer Email SMS Gateway ( ou semblable )
 https://play.google.com/store/apps/details?id=com.maxlabmobile.emailtosmsgateway
+
 Configuration :
+
 Enable -> OUI 
+
 Email accounts -> ajoutez le compte email a observer
   - Check Interval -> choisissez quand vérifier la présence de nouveaux emails
+  
 Email Subject Prefix -> mot-clé dans le sujet de l'email qui déclenche l'envoi d'un sms ( si modifié, il doit aussi être modifié dans le code )
 
 Usage :
+
 lancer le fichier html dans un navigateur
 renseignez le numéro ou le nom du contact (tel que définit dans votre téléphone) a joindre.
 Selectionnez votre message prédéfini ou créez le votre.
