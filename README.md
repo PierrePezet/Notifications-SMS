@@ -27,8 +27,11 @@ Email Subject Prefix -> keyword in the subject of the email that triggers the se
 Use :
 
 launch the html file in a browser
+
 fill in the number or name of the contact (as defined in your phone) to be reached.
+
 Select your predefined message or create your own.
+
 Click send -> your email software launches and offers you the preformatted mail;
 You just have to confirm the shipment.
 
